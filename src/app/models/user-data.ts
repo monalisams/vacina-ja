@@ -1,0 +1,30 @@
+export interface UserData {
+  nome: string;
+  sobrenome: string;
+  dataNascimento?: Date;
+  cpf: string;
+  rua: string;
+  cidade: string;
+  estado: string;
+  celular: string;
+  telefone: string;
+  email: string;
+  sexoBiologico: string;
+  teveReacao: string;
+  teveSintomas: string;
+  temComorbidade: string;
+  dataVacinacao?: Date;
+  fabricante: string;
+  lote:string;
+  unidade: string;
+  vacinador: string;
+  regProf: string;
+  dataVacinacao2?: Date;
+  lote2:string;
+  vacinador2: string;
+  regProf2: string;
+  sintomasCovid: string;
+  positivoCovid: string;
+  comorbidades: string[];
+  vacinas: string[];
+}
