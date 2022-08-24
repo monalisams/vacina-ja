@@ -1,0 +1,398 @@
+<form
+  #form="ngForm"
+  (ngSubmit)="form.valid && salvar()"
+  fxLayout="column"
+  fxLayoutAlign="start stretch"
+>
+  <div layout="column" layout-fill>
+    <div align="center" layout="row" layout-align="center center">
+      <div class="form-paciente">
+        <mat-card class="info-card mat-elevation-z8" flex="80">
+          <mat-card-title fxLayout="row" fxLayoutAlign="space-evelyn start">
+            <a
+              mat-icon-button
+              matTooltip="Retornar para lista"
+              routerLink="/paciente/lista"
+              tag="button"
+            >
+              <mat-icon color="primary">arrow_back</mat-icon>
+          </a>
+            <h2>Formulário Vacinação COVID-2019</h2>
+          </mat-card-title>
+
+          <mat-card-content fxLayout="column" fxLayoutAlign="stretch">
+            <div fxFlex="100" fxLayout="row" fxLayoutGap="1rem">
+              <mat-form-field appearance="outline" fxFlex="46">
+                <mat-label>Nome</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="nome"
+                  #nomeField="ngModel"
+                  [(ngModel)]="paciente.name"
+                  required
+                />
+                <mat-error *ngIf="nomeField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline" fxFlex="54">
+                <mat-label>Sobrenome</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="sobrenome"
+                  #sobrenomeField="ngModel"
+                  [(ngModel)]="paciente.middleName"
+                  required
+                />
+                <mat-error *ngIf="sobrenomeField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="100" fxLayout="row" fxLayoutGap="1rem">
+              <mat-form-field appearance="outline" fxFlex="50">
+                <mat-label>E-mail</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="email"
+                  #emailField="ngModel"
+                  [(ngModel)]="paciente.email"
+                  email
+                  required
+                />
+                <mat-error *ngIf="emailField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+                <mat-error *ngIf="emailField.errors?.email"
+                  >E-mail inválido</mat-error
+                >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" fxFlex="25">
+                <mat-label>CPF</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="cpf"
+                  mask="000.000.000-00"
+                  #cpfField="ngModel"
+                  [(ngModel)]="paciente.cpf"
+                  cpf
+                  required
+                />
+                <mat-error *ngIf="cpfField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+                <mat-error *ngIf="cpfField.errors?.mask"
+                  >Formato inválido</mat-error
+                >
+                <mat-error *ngIf="cpfField.errors?.cpf">Cpf inválido</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" fxFlex="25">
+                <mat-label>Data Nascimento</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="dataNascimento"
+                  name="dataNascimento"
+                  #dataField="ngModel"
+                  [(ngModel)]="paciente.birthDate"
+                  required
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="dataNascimento"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #dataNascimento></mat-datepicker>
+                <mat-error *ngIf="dataField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+                <mat-error *ngIf="dataField.errors?.matDatepickerParse"
+                  >Data inválida</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field fxFlex="20" appearance="outline">
+                <mat-label>Sexo biológico</mat-label>
+                <mat-select
+                  appearance="outline"
+                  name="sexoBiologico"
+                  #estadoField="ngModel"
+                  [(ngModel)]="paciente.biologicalSex"
+                  required
+                >
+                  <mat-option value="F">Feminino</mat-option>
+                  <mat-option value="M">Masculino</mat-option>
+                </mat-select>
+                <mat-error *ngIf="estadoField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="100" fxLayoutAlign="start">
+              <h4><b>Endereço:</b></h4>
+            </div>
+            <div fxFlex="100" fxLayout="row" fxLayoutGap="1rem">
+              <mat-form-field appearance="outline" fxFlex="50">
+                <mat-label>Rua</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="rua"
+                  #ruaField="ngModel"
+                  [(ngModel)]="paciente.street"
+                  required
+                />
+                <mat-error *ngIf="ruaField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline" fxFlex="30">
+                <mat-label>Cidade</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="cidade"
+                  #cidadeField="ngModel"
+                  [(ngModel)]="paciente.city"
+                  required
+                />
+                <mat-error *ngIf="cidadeField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" fxFlex="20">
+                <mat-label>Estado</mat-label>
+                <mat-select
+                  name="estado"
+                  #estadoField="ngModel"
+                  [(ngModel)]="paciente.state"
+                  required
+                >
+                  <mat-option
+                    [value]="estado.valor"
+                    *ngFor="let estado of estados"
+                    >{{ estado.valor + " - " + estado.nome }}</mat-option
+                  >
+                </mat-select>
+                <mat-error *ngIf="estadoField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="100" fxLayoutAlign="start">
+              <h4><b>Telefone:</b></h4>
+            </div>
+
+            <div fxFlex="100" fxLayout="row wrap" fxLayoutGap="1rem">
+              <mat-form-field appearance="outline" fxFlex="24">
+                <mat-label>Celular</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="celular"
+                  mask="(00) 00000-0000"
+                  #celularField="ngModel"
+                  [(ngModel)]="paciente.cell"
+                  placeholder="(00) 00000-0000"
+                  required
+                />
+                <mat-error *ngIf="celularField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline" fxFlex="20">
+                <mat-label>Telefone</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  name="telefone"
+                  mask="(00) 0000-0000"
+                  #telefoneField="ngModel"
+                  [(ngModel)]="paciente.phone"
+                  placeholder="(00) 0000-0000"
+                  required
+                />
+                <mat-error *ngIf="telefoneField.errors?.required"
+                  >Campo obrigatório</mat-error
+                >
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <mat-card class="info-card mat-elevation-z8" flex="80">
+        <mat-card-title
+          class="questionario"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          Questionário Preventivo
+        </mat-card-title>
+        <mat-card-content fxLayout="column" fxLayoutAlign="stretch">
+          <div fxFlex="100">
+            <mat-radio-group
+              name="teveReacao"
+              #teveReacaoField="ngModel"
+              [(ngModel)]="paciente.vaccineReactionBoolean"
+              fxLayout="row wrap"
+              fxLayoutGap="0.5rem"
+              aria-label="Select an option"
+              required
+            >
+              <h4><b>Teve reação alergica à alguma vacina?</b></h4>
+              <mat-radio-button [value]="true">Sim</mat-radio-button>
+              <mat-radio-button [value]="false">Não</mat-radio-button>
+              <mat-error
+                class="small"
+                *ngIf="form.submitted && !paciente.vaccineReactionBoolean"
+                fxFlex="100%"
+                fxLayoutAlign="start"
+                >Campo obrigatório</mat-error
+              >
+            </mat-radio-group>
+          </div>
+
+          <mat-form-field
+            appearance="outline"
+            *ngIf="paciente.vaccineReactionBoolean"
+          >
+            <mat-label><b>Selecione a vacina à qual teve reação</b></mat-label>
+            <mat-select
+              name="vacinas"
+              [(ngModel)]="paciente.vaccineReaction"
+              multiple
+              #vacinasField="ngModel"
+              required
+            >
+              <mat-option
+                *ngFor="let vacina of listaVacinas"
+                [value]="vacina.valor"
+                >{{ vacina.nome }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="vacinasField.errors?.required"
+              >Campo obrigatório</mat-error
+            >
+          </mat-form-field>
+          <!--
+          <pre>
+            {{vacinas | json}}
+          </pre> Visualziar Json(visualizar objeto)
+            -->
+
+          <div fxFlex="100">
+            <mat-radio-group
+              name="sintomasCovid"
+              fxLayout="row wrap"
+              fxLayoutGap="0.5rem"
+              aria-label="Select an option"
+              [(ngModel)]="paciente.covidSymptoms"
+            >
+              <h4>
+                <b>Teve algum sintoma do vírus COVID-19 nos últimos 07 dias?</b>
+              </h4>
+              <mat-radio-button [value]="true">Sim</mat-radio-button>
+              <mat-radio-button [value]="false">Não</mat-radio-button>
+              <mat-error
+                class="small"
+                *ngIf="form.submitted && !paciente.covidSymptoms"
+                fxFlex="100%"
+                fxLayoutAlign="start"
+                >Campo obrigatório</mat-error
+              >
+            </mat-radio-group>
+          </div>
+          <div fxFlex="100">
+            <mat-radio-group
+              name="positivoCovid"
+              fxLayout="row wrap"
+              fxLayoutGap="0.5rem"
+              aria-label="Select an option"
+              [(ngModel)]="paciente.positiveCovid"
+            >
+              <h4>
+                <b
+                  >Em algum momenton já testou positivo para o vírus
+                  COVID-19?</b
+                >
+              </h4>
+              <mat-radio-button [value]="true">Sim</mat-radio-button>
+              <mat-radio-button [value]="false">Não</mat-radio-button>
+              <mat-error
+                class="small"
+                *ngIf="form.submitted && !paciente.positiveCovid"
+                fxFlex="100%"
+                fxLayoutAlign="start"
+                >Campo obrigatório</mat-error
+              >
+            </mat-radio-group>
+          </div>
+
+          <div fxFlex="100">
+            <mat-radio-group
+              name="temComorbidade"
+              [(ngModel)]="paciente.comorbidityBoolean"
+              fxLayout="row wrap"
+              fxLayoutGap="0.5rem"
+              aria-label="Select an option"
+            >
+              <h4><b>Tem alguma cormobidade?</b></h4>
+              <mat-radio-button [value]="true">Sim</mat-radio-button>
+              <mat-radio-button [value]="false">Não</mat-radio-button>
+              <mat-error
+                class="small"
+                *ngIf="form.submitted && !paciente.comorbidityBoolean"
+                fxFlex="100%"
+                fxLayoutAlign="start"
+                >Campo obrigatório</mat-error
+              >
+            </mat-radio-group>
+          </div>
+          <mat-form-field
+            appearance="outline"
+            *ngIf="paciente.comorbidityBoolean"
+          >
+            <mat-label>Comorbidade</mat-label>
+            <mat-select
+              name="comorbidades"
+              #comorbidadesField="ngModel"
+              [(ngModel)]="paciente.comorbidity"
+              multiple
+              required
+            >
+              <mat-option
+                *ngFor="let comorbidade of listaComorbidades"
+                [value]="comorbidade.valor"
+                >{{ comorbidade.nome }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="comorbidadesField.errors?.required"
+              >Campo obrigatório</mat-error
+            >
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+      <button class="botaoSalvar" mat-button type="submit"  >
+        <mat-icon>done</mat-icon>Salvar
+      </button>
+    </div>
+  </div>
+</form>

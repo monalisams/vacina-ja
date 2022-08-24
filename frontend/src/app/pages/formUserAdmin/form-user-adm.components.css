@@ -1,0 +1,22 @@
+
+.pag-error{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+.bnt{
+  margin: 20px;
+  width: 300px;
+  color: #fff;
+  background-color:#134685;
+  box-shadow: rgb(33 96 172) 0px 8px 8px;
+  transition: all .2s ease-in-out;
+}
+
+.bnt-entrar:hover{
+  background-color:#94a6bd;
+}
+

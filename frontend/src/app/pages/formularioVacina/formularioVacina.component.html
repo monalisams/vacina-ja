@@ -1,0 +1,140 @@
+<form
+  #form="ngForm"
+  (ngSubmit)="form.valid && salvar()"
+  fxLayout="column"
+  fxLayoutAlign="start center"
+>
+  <mat-card class="info-card mat-elevation-z8" flex="80">
+    <mat-card-title fxLayout="row" fxLayoutAlign="space-between center">
+    </mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutAlign="stretch">
+      <a
+      mat-icon-button
+      matTooltip="Retornar para lista"
+      routerLink="/paciente/lista"
+      tag="button"
+    >
+      <mat-icon color="primary">arrow_back</mat-icon>
+    </a>
+      <h2 class="titulo1">Vacinação</h2>
+      <div fxLayout="row" fxLayoutGap="1rem">
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label>Data da vacinação</mat-label>
+          <input
+            matInput
+            [matDatepicker]="dvacinacao"
+            name="dataVacinacao"
+            #dvacinacaoField="ngModel"
+            [(ngModel)]="vacina.dateVaccination1"
+            required
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="dvacinacao"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #dvacinacao></mat-datepicker>
+          <mat-error *ngIf="dvacinacaoField.errors?.required"
+            >Campo obrigatório</mat-error
+          >
+          <mat-error *ngIf="dvacinacaoField.errors?.matDatepickerParse"
+            >Data inválida</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label>Fabricante</mat-label>
+          <mat-select
+            name="fabricante"
+            #fabricanteField="ngModel"
+            [(ngModel)]="vacina.manufacturer1"
+            required
+          >
+            <mat-option
+              class="form-control"
+              [value]="fabricante.valor"
+              *ngFor="let fabricante of fabricantes"
+              >{{ fabricante.nome }}</mat-option
+            >
+            <mat-error *ngIf="fabricanteField.errors?.required"
+              >Campo obrigatório</mat-error
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label>Lote</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="lote"
+            #loteField="ngModel"
+            [(ngModel)]="vacina.batch1"
+            required
+          />
+          <mat-error *ngIf="loteField.errors?.required"
+            >Campo obrigatório</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="1rem">
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label>Unidade</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="unidade"
+            #unidadeField="ngModel"
+            [(ngModel)]="vacina.unity1"
+            required
+          />
+          <mat-error *ngIf="unidadeField.errors?.required"
+            >Campo obrigatório</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label>Vacinador</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="vacinador"
+            #vacinadorFiel="ngModel"
+            [(ngModel)]="vacina.vaccinator1"
+            required
+          />
+          <mat-error *ngIf="vacinadorFiel.errors?.required"
+            >Campo obrigatório</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="33">
+          <mat-label>Registro profissional</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            name="regProf"
+            #regProfField="ngModel"
+            [(ngModel)]="vacina.professionalRecord1"
+            required
+          />
+          <mat-error *ngIf="regProfField.errors?.required"
+            >Campo obrigatório</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+
+    </mat-card-footer>
+
+  </mat-card>
+
+  <button class="botaoSalvar" mat-button type="submit" >
+  Salvar
+  </button>
+</form>

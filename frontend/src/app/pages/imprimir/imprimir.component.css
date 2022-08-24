@@ -1,0 +1,72 @@
+.carteirinha {
+  background-color: #134685;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  width: 600px;
+  border: 1px solid black;
+}
+
+.titulo {
+  color: white;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+.btn{
+  margin-left: 300px;
+}
+.imprimir{
+  margin-top: 250px;
+}
+
+.titulo h2 {
+  margin: 0;
+}
+
+.subtitulo {
+  background-color: white;
+  padding: 0.5rem 1rem;
+}
+
+.conteudo {
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nome {
+  border: 2px solid black;
+  border-bottom-width: 0;
+}
+
+.coluna1,
+.coluna2 {
+  border: 1px solid black;
+}
+
+.coluna1 span,
+.coluna2 span {
+  border: 1px solid black;
+}
+
+.coluna1 {
+  border-right-width: 0;
+}
+
+.coluna2 {
+  border-left-width: 0;
+}
+
+.rodape {
+  background-color: white;
+  padding: 0.5rem 1rem;
+}
+
+span {
+  padding: 0.3rem;
+}
+
+.verde {
+  color: #134685;
+}

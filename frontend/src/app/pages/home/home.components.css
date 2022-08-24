@@ -1,0 +1,45 @@
+
+.bg{
+  background-image: url('../../../assets/images/Live-Background-1.svg');
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position-y: -66px;
+  background-repeat: no-repeat;
+}
+
+h1{
+  align-self: center;
+  color: #134685;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+p{
+  width: 40ch;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+.btn-entrar{
+  color: #fff;
+  background-color:#134685;
+  margin-top: 20px;
+  box-shadow: rgb(33 96 172) 0px 8px 8px;
+  transition: all .2s ease-in-out;
+}
+
+.bnt-entrar:hover{
+  background-color:#0d2e57;
+}
+.texto-direito{
+  margin-left: 500px;
+  justify-content: center;
+}
+
+.img-gotinha{
+  margin: 150px 50px 0 200px;
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  width: 280px;
+}

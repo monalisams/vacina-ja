@@ -1,0 +1,75 @@
+<div >
+  <div class="btn">
+    <button
+      class="imprimir"
+      mat-button
+      matTooltip="Retornar para lista"
+      routerLink="/paciente/lista"
+      tag="button"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-button (click)="imprimir()"><mat-icon>print</mat-icon></button>
+  </div>
+
+  <div class="pagina" fxLayout="row" fxLayoutAlign="center">
+    <div class="carteirinha">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="titulo">
+        <img
+          class="img-responsive"
+          src="assets/images/brasao-sp.png"
+          height="50px"
+        />
+        <h2>CAMPANHA CONTRA A COVID-19</h2>
+        <img
+          class="img-responsive"
+          src="assets/images/sp-branco.png"
+          height="50px"
+        />
+      </div>
+
+      <div class="subtitulo verde" fxLayout="column" fxLayoutAlign=" end">
+        <b>#Vacinajá</b>
+      </div>
+
+      <div class="conteudo" fxLayout="row wrap">
+        <span fxFlex="grow" class="nome">
+          <b>Nome:</b> {{ usuario?.name + " " + usuario?.middleName }}
+        </span>
+
+        <div
+          class="coluna1"
+          fxLayout="column"
+          fxFlex="50"
+          *ngFor="let d of usuario?.vaccinationDoses"
+        >
+          <span class="verde">
+            <b>{{ d.doseNumber }}ª Dose</b>
+          </span>
+
+          <span> <b>Unidade:</b> {{ d.unity1 }} </span>
+
+          <span>
+            <b>Data:</b> {{ d.dateVaccination1 | date: "dd/MM/yyyy" }}
+          </span>
+
+          <span> <b>Lote:</b> {{ d.batch1 }} </span>
+
+          <span> <b>Fabricante:</b> {{ d.manufacturer1 }} </span>
+
+          <span> <b>Vacinador:</b> {{ d.vaccinator1 }} </span>
+
+          <span> <b>Reg. Prof.:</b> {{ d.professionalRecord1 }} </span>
+        </div>
+      </div>
+      <div class="rodape" fxLayout="row" fxLayoutAlign="space-between center">
+        <b>Comprovante de Vacinação</b>
+        <img
+          class="img-responsive"
+          src="assets/images/logo-vacivida.png"
+          width="70px"
+        />
+      </div>
+    </div>
+  </div>
+</div>

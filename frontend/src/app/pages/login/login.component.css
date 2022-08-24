@@ -1,0 +1,29 @@
+mat-card {
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+mat-radio-group {
+  padding-top: 1rem;
+}
+
+.form{
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.bnt-entrar{
+  color: #fff;
+  width: 220px;
+  background-color:#134685;
+  box-shadow: rgb(33 96 172) 0px 8px 8px;
+  transition: all .2s ease-in-out;
+}
+
+.bnt-entrar:hover{
+  background-color:#0d2e57;
+}
+
+.input{
+  min-width: 240px;
+}

@@ -1,0 +1,47 @@
+<form
+  #form="ngForm"
+  (ngSubmit)="form.valid && loginUser()"
+>
+    <div fxLayout="column"  class="form">
+      <h1>Login</h1>
+      <mat-form-field appearance="outline" class="input">
+        <mat-label>Login</mat-label>
+        <input
+          matInput
+          type="text"
+          name="login"
+          placeholder="Placeholder"
+          required
+          [(ngModel)]="login"
+        />
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="input">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          name="password"
+          placeholder="Placeholder"
+          required
+          [(ngModel)]="password"
+        />
+        <button
+        type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon matSuffix>
+            {{ hide ? "visibility_off" : "visibility" }}
+          </mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button class="bnt-entrar" mat-stroked-button>
+        Entrar
+      </button>
+    </div>
+</form>

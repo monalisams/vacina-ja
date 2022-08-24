@@ -1,0 +1,84 @@
+<form #form="ngForm" (ngSubmit)="form.valid && salvar()">
+  <div fxLayout="column" fxLayoutAlign="space-around center">
+    <mat-card-title fxLayout="row" fxLayoutAlign="space-between center" class="form">
+      <button
+        mat-icon-button
+        matTooltip="Retornar para lista"
+        routerLink="/usuario/lista"
+        type="button"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h2>Formulário Cadastro Usuários</h2>
+    </mat-card-title>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome Completo</mat-label>
+      <input
+        matInput
+        type="text"
+        class="form-control"
+        name="nome"
+        #nomeField="ngModel"
+        [(ngModel)]="user.name"
+        required
+      />
+      <mat-error *ngIf="nomeField.errors?.required"
+        >Campo obrigatório</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Login</mat-label>
+      <input
+        matInput
+        type="text"
+        class="form-control"
+        name="login"
+        #nomeField="ngModel"
+        [(ngModel)]="user.login"
+        required
+      />
+      <mat-error *ngIf="nomeField.errors?.required">
+        Campo obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        type="password"
+        class="form-control"
+        name="email"
+        #nomeField="ngModel"
+        [(ngModel)]="user.password"
+        [required]="!user.id"
+      />
+      <mat-error *ngIf="nomeField.errors?.required">
+        Campo obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo de acesso:</mat-label>
+      <mat-select
+        appearance="outline"
+        name="sexoBiologico"
+        #estadoField="ngModel"
+        [(ngModel)]="user.role"
+        required
+      >
+        <mat-option value="ADMIN">ADMIN</mat-option>
+        <mat-option value="USER">OPER</mat-option>
+      </mat-select>
+      <mat-error *ngIf="estadoField.errors?.required">
+        Campo obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-stroked-button class="botaoSalvar">
+      {{ user.id ? "Salvar Usuário" : "Criar Usuário" }}
+    </button>
+  </div>
+</form>

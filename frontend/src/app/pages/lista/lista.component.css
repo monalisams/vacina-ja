@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+.formulario{
+  padding-top: 160px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.tabela {
+  margin: 1rem auto;
+  max-width: 1000px;
+}
+
+.parte1 {
+  max-width: 1000px;
+}
+
+.btn{
+  padding-top: calc(1.34375em / 2);
+  padding-bottom: calc(1.34375em / 2);
+}
+.input{
+  min-width: 240px;
+  min-height: 55px;
+
+}
+
+.menu{
+}
+
+.menu-btn{
+  background-color: #3868AA;
+  color: white;
+  margin-top: 150px;
+  margin-right: 400px;
+}
+
+

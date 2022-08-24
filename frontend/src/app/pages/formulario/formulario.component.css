@@ -1,0 +1,33 @@
+mat-error.small {
+  font-size: 75%;
+}
+
+.botaoSalvar {
+  color: #fff;
+  width: 220px;
+  background-color:#134685;
+  box-shadow: rgb(33 96 172) 0px 8px 8px;
+  transition: bottom .1s ease-in-out;
+  margin-bottom: 30px;
+}
+
+.bnt-entrar:hover{
+  background-color:#a9aeb4;
+}
+.form-paciente{
+  margin-top: 280px;
+}
+
+mat-radio-group {
+  padding-top: 1rem;
+}
+
+mat-card {
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+.questionario {
+  padding: 1rem;
+  font-size: 20px;
+}
